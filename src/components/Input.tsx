@@ -54,7 +54,7 @@ const InputSearch = ({ mode }: { mode: string }) => {
         </div>
       </Form>
       <MainComponent
-        name={user?.name === null ? userData : user?.name ?? ""}
+        name={user?.name ?? ""}
         login={user?.login ?? ""}
         day={user?.created_at ?? ""}
         month={user?.created_at ?? ""}
