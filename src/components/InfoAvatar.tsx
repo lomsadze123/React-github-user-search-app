@@ -1,23 +1,24 @@
 import { styled } from "styled-components";
 
 interface Repos {
-  title: string;
-  number: string;
+  title?: string;
+  number?: number;
+  bio?: string;
+  repos?: number;
+  follower?: number;
+  following?: number;
 }
 
-const InfoAvatar = () => {
+const InfoAvatar = ({ bio, repos, follower, following }: Repos) => {
   return (
     <Div>
       <aside>
-        <h5>
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.
-          Quisque volutpat mattis eros.
-        </h5>
+        <h5>{bio}</h5>
       </aside>
       <div>
-        <RepoInfo title="Repos" number="8" />
-        <RepoInfo title="Followers" number="3938" />
-        <RepoInfo title="Following" number="9" />
+        <RepoInfo title="Repos" number={repos} />
+        <RepoInfo title="Followers" number={follower} />
+        <RepoInfo title="Following" number={following} />
       </div>
     </Div>
   );

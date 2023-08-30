@@ -1,10 +1,17 @@
 import { styled } from "styled-components";
 
-const Contacts = () => {
+interface Contact {
+  location: string;
+  blog: string;
+  twitter: string;
+  company: string;
+}
+
+const Contacts = ({ location, blog, twitter, company }: Contact) => {
   return (
     <Div>
       <article>
-        <div>
+        <Opacity about={location === "Not Available"} gridArea="location">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14"
@@ -19,9 +26,9 @@ const Contacts = () => {
               fill="#4B6A9B"
             />
           </svg>
-          <p>San Francisco</p>
-        </div>
-        <div>
+          <p>{location}</p>
+        </Opacity>
+        <Opacity about={blog === "Not Available"} gridArea="blog">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -38,12 +45,12 @@ const Contacts = () => {
               fill="#4B6A9B"
             />
           </svg>
-          <p>https://github.blog</p>
-        </div>
+          <p>{blog}</p>
+        </Opacity>
       </article>
 
       <article>
-        <div>
+        <Opacity about={twitter === "Not Available"} gridArea="twitter">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -56,9 +63,9 @@ const Contacts = () => {
               fill="#4B6A9B"
             />
           </svg>
-          <p>Not Available</p>
-        </div>
-        <div>
+          <p>{twitter}</p>
+        </Opacity>
+        <Opacity about={company === "Not Available"} gridArea="company">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -79,8 +86,8 @@ const Contacts = () => {
               fill="#4B6A9B"
             />
           </svg>
-          <p>@github</p>
-        </div>
+          <p>{company}</p>
+        </Opacity>
       </article>
     </Div>
   );
@@ -89,16 +96,11 @@ const Contacts = () => {
 export default Contacts;
 
 const Div = styled.div`
-  article,
   div {
     display: flex;
   }
-  article {
-    flex-direction: column;
-    gap: 1.6rem;
-  }
-  article + article {
-    margin-top: 1.6rem;
+  article div {
+    margin-bottom: 1.6rem;
   }
   article:first-child div:first-child {
     gap: 1.92rem;
@@ -112,10 +114,15 @@ const Div = styled.div`
   }
 
   @media (min-width: 768px) {
-    article {
-      flex-direction: row;
-      gap: 6.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "location twitter"
+      "blog company";
+    article div {
+      margin-bottom: 1.6rem;
     }
+
     p {
       font-size: 1.5rem;
     }
@@ -124,4 +131,8 @@ const Div = styled.div`
       cursor: pointer;
     }
   }
+`;
+const Opacity = styled.div<{ about: boolean; gridArea: string }>`
+  grid-area: ${(props) => props.gridArea};
+  opacity: ${(props) => (props.about ? 0.6 : 1)};
 `;

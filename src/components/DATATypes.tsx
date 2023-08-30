@@ -1,0 +1,40 @@
+const DATA = {
+  login: "lomsadze123",
+  id: 91826108,
+  node_id: "U_kgDOBXknvA",
+  avatar_url: "https://avatars.githubusercontent.com/u/91826108?v=4",
+  gravatar_id: "",
+  url: "https://api.github.com/users/lomsadze123",
+  html_url: "https://github.com/lomsadze123",
+  followers_url: "https://api.github.com/users/lomsadze123/followers",
+  following_url:
+    "https://api.github.com/users/lomsadze123/following{/other_user}",
+  gists_url: "https://api.github.com/users/lomsadze123/gists{/gist_id}",
+  starred_url:
+    "https://api.github.com/users/lomsadze123/starred{/owner}{/repo}",
+  subscriptions_url: "https://api.github.com/users/lomsadze123/subscriptions",
+  organizations_url: "https://api.github.com/users/lomsadze123/orgs",
+  repos_url: "https://api.github.com/users/lomsadze123/repos",
+  events_url: "https://api.github.com/users/lomsadze123/events{/privacy}",
+  received_events_url:
+    "https://api.github.com/users/lomsadze123/received_events",
+  type: "User",
+  site_admin: false,
+  name: "Beka Lomsadze",
+  company: null,
+  blog: "",
+  location: "Georgia, Rustavi",
+  email: null,
+  hireable: null,
+  bio: "💻 Junior Front-End Developer 👋",
+  twitter_username: null,
+  public_repos: 45,
+  public_gists: 0,
+  followers: 3,
+  following: 3,
+  created_at: "2021-10-03T09:46:20Z",
+  updated_at: "2023-08-29T11:08:01Z",
+  message: "Not Found",
+};
+
+export type User = typeof DATA;
