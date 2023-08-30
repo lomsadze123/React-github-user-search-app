@@ -13,9 +13,9 @@ const HeaderComponent = ({
     <Header about={mode === "dark" ? false : true}>
       <h1>devfinder</h1>
       <button onClick={handleSwitch}>
-        <h4 about={mode === "dark" ? false : true}>
+        <H4 about={mode === "dark" ? false : true}>
           {mode === "dark" ? "light" : "dark"}
-        </h4>
+        </H4>
         {mode === "light" ? (
           <img src={Moon} alt="moon" />
         ) : (
@@ -45,16 +45,16 @@ const Header = styled.header<{ about: boolean }>`
     color: ${(props) => (props.about ? "#222731" : "#FFFFFF")};
     font-size: 2.6rem;
   }
-  h4 {
-    color: ${(props) => (props.about ? "#4b6a9b" : "#FFFFFF")};
-    font-size: 1.3rem;
-    letter-spacing: 0.25rem;
-    text-transform: uppercase;
-  }
 
   @media (min-width: 768px) {
     button:hover {
       cursor: pointer;
     }
   }
+`;
+const H4 = styled.h4<{ about: boolean }>`
+  color: ${(props) => (props.about ? "#4b6a9b" : "#FFFFFF")};
+  font-size: 1.3rem;
+  letter-spacing: 0.25rem;
+  text-transform: uppercase;
 `;
